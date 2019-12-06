@@ -1,0 +1,1 @@
+{"name":"Ittx Real","short_name":"IttxReal","theme_color":"#4DBA87","icons":[{"src":"./src/assets/192.png","type":"image/png","sizes":"192x192"},{"src":"./src/assets/512.png","type":"image/png","sizes":"512x512"}],"start_url":"/","display":"standalone","background_color":"#FFFFFF","scope":"/"}
