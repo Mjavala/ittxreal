@@ -7,13 +7,11 @@
          <v-img contain src="../assets/tree.jpg"></v-img>
         </div>
         <div id="mission-text">
-I want my art to be a platform that brings people together and empowers a community of love, support and acceptance. Love, for the beautiful natural world we all live in. Support, for my fellow humans who are out there living their truth and trying their best. Acceptance, amongst all the differences, for our differences make the world so flavorful. 
-
-After experiencing the depth of mental health issues in our communities and in our families, my heart ached to better understand and help. My mission is to donate 5% of all my art proceeds to the Gallatin Mental Health Center to support the amazing resources they provide for my local community.
-
+I want my art to be a platform that brings people together and empowers individuals to be the best version of themselves. I think it is important to give back which is why I rotate donating a percentage of my sales to organizations and nonprofit groups that provide empowering and helpful services to our communities. Please follow me on social media to find out what organization we are currently donating to.
+    <v-spacer><div id="quote-text">“Love the world as your own self; then you can truly care for all things.” - Lao Tzu</div></v-spacer>
+        </div>
         </div>
       </div>
-  </div>
 </template>
 
 <script>
@@ -44,5 +42,7 @@ export default {
       width: 30vw;
       margin-bottom: 7.5em;
     }
-
+    #quote-text {
+      padding: 2em;
+    }
 </style>
