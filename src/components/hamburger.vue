@@ -2,9 +2,10 @@
   <v-card flat class="hidden-xs-only" >
     <v-navigation-drawer
       v-model="drawer"
+      floating
       :mini-variant.sync="mini"
       class="dashboard"
-      height="360"
+      height="400"
       width="250"
       
       overlay-opacity="0"
@@ -13,19 +14,20 @@
 
         <v-btn
           icon
-          @click.stop="mini = !mini"
+          @click="dashNav"
           class="dashboard-icon"
         >
           <img :src="require('../assets/view-dashboard.png')">
         </v-btn>
       </v-list-item>
 
-      <v-list nav>
+      <v-list v-if="clicked" nav>
         <v-list-item
           v-for=" (item, i) in items"
           :key="i"
+          :to="item.href"
         >
-          <v-list-item-title>{{ item.title}} </v-list-item-title>
+          <v-list-item-title class="title">{{ item.title}} </v-list-item-title>
            </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -39,21 +41,27 @@
       return {
         drawer: true,
         items: [
-          { title: 'Testimonials'},
-          { title: 'Collections'},
-          { title: 'About'},
-          { title: 'Mission'},
-          { title: 'Contact'},
+          { title: 'Home', href: "/"},
+          { title: 'About', href: "/about"},
+          { title: 'Mission', href: "/mission"},
+          { title: 'Contact', href: "/contact"},
         ],
         mini: true,
+        clicked: false
       }
     },
+    methods: {
+      dashNav () {
+        this.mini = !this.mini
+        this.clicked = !this.clicked
+      }
+    }
   }
 </script>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css?family=Cairo|Cormorant+Garamond|Exo+2|Rokkitt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Economica&display=swap');
 
 
 .dashboard{
@@ -61,6 +69,7 @@
     margin-left: .1%;
     margin-top: .1%;
     z-index: 100;
+    overflow-y: hidden;
 }
 
 @keyframes shadow-pulse
@@ -76,7 +85,6 @@
 .dashboard-icon{
     margin-top: 20%;
     animation: shadow-pulse 3s infinite;
-    background: #020200 !important;
 }
 
 .v-list-item__title{

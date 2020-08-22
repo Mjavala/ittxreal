@@ -1,74 +1,77 @@
 <template>
     <div class="hl-container">
-      <div class="headlines">
-          <span>
-               It's Bold, It's Timeless, 
-          </span>
-          </div>
-      <div class="brand"> ITtx REAL</div>
+        <div id="bold" class="brand noshow"> It's Bold.</div>
+        <div id="timeless" class="brand noshow"> It's Timeless.</div>
+        <div id="real" class="brand noshow"> ITtx REAL.</div>
     </div>
 </template>
 
-<style>
-.hl-container {
-    display:flex;
-    justify-content: center;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-size: 35px;
-    letter-spacing: .1px;
-}
-.headlines {
-    font-family: 'Cormorant Garamond', serif;
-    z-index: 10000;
-    width:0px;
-    animation: reveal 7s 1 forwards;
-    -webkit-animation: reveal 7s 1 forwards;
-    -moz-animation: reveal 7s 1 forwards;
-    -ms-zoom-animation: reveal 7s 1 forwards;
-}
-.brand{
-    display:inline-block;
-    overflow:hidden;
-    white-space:nowrap;
-    font-family: 'Cormorant Garamond', serif;
-    z-index: 100010;
-    padding-left: 1.3%;
+<script>
+export default {
+    data () {
+        return {
 
-    animation: showup 7s 1 forwards;
-    -webkit-animation: showup 7s 1 forwards;
-    -moz-animation: showup 7s 1 forwards;
-    -ms-zoom-animation: showup 7s 1 forwards;
+        }
+    },
+    mounted () {
+        const bold = document.getElementById('bold')
+        const timeless = document.getElementById('timeless')
+        const real = document.getElementById('real')
+        setTimeout(() => {
+            bold.classList.remove('noshow')
+            bold.classList.add('enter')
+        }, 500)
+        setTimeout(() => {
+            timeless.classList.remove('noshow')
+            timeless.classList.add('enter')
+        }, 1500)
+        setTimeout(() => {
+            real.classList.remove('noshow')
+            real.classList.add('enter')
+        }, 2500)
+    }
 }
-.headlines span{
-    animation: slidein 7s 1;
-    -webkit-animation: slidein 7s 1;
-    -moz-animation: slidein 7s 1;
-    -ms-zoom-animation: slidein 7s 1;
-}
-@keyframes showup {
-    0% {opacity:0;}
-    20% {opacity:1;}
-    80% {opacity:1;}
-    100% {opacity:1;}
-}
-@keyframes slidein {
-    0% { margin-left:-1000px; }
-    20% { margin-left:-1000px; }
-    35% { margin-left:0px; }
-    100% { margin-left:0px; }
-}
-@keyframes reveal {
-    0% {opacity:0;width:0px;}
-    20% {opacity:1;width:0px;}
-    30% {width:auto;}
-    80% {opacity:1;}
-    100% {opacity:1;width:auto;}
-}
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
-    .hl-container{
+</script>
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+    .hl-container {
+        display:flex;
+        justify-content: center;
+        margin: 0 auto;
         line-height: 1.6;
-        font-size: 30px;
+        font-size: 35px;
+        letter-spacing: .1px;
+        width: 100%;
+    }
+    .brand{
+        display:inline-block;
+        overflow:hidden;
+        white-space:nowrap;
+        font-family: 'Poiret One', cursive;
+        padding-left: 1.75%;
+        font-size: 1.5em;
+    }
+    .enter{
+    animation: 1s enter ease forwards;
+    }
+    .noshow{
+        opacity: 0;
+    }
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+        .hl-container{
+            line-height: 1.6;
+            font-size: 30px;
+        }
+    }
+    @keyframes enter {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 </style>

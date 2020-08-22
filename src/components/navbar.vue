@@ -1,18 +1,39 @@
 <template>
     <nav>
-    <v-app-bar app bottom elevation="0" color="#020200" class="mobile-nav">
-        <v-btn text class="white--text">Testimonials</v-btn>
-        <v-btn text class="white--text">Collections</v-btn>
-        <v-btn text class="white--text">About</v-btn>
-        <v-btn text class="white--text">Mission</v-btn>
-        <v-btn text class="white--text">Contact</v-btn>
-    </v-app-bar>
+        <div class="mobile-nav">
+            <div>
+                <v-btn text class="white--text">
+                    <router-link to="/">Home</router-link>
+                </v-btn>
+                <v-btn text class="white--text">
+                    <router-link to="/about">About</router-link>
+                </v-btn>
+                <v-btn text class="white--text">
+                    <router-link to="/mission">Mission</router-link>
+                </v-btn>
+                <v-btn text class="white--text">
+                    <router-link to="/contact">Contact</router-link>
+                </v-btn>
+            </div>
+        </div>
     </nav>
 </template>
 
 <style>
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .theme--light.v-btn{
+        color: white;
+    }
 @media only screen and (min-device-width : 481px){
     .mobile-nav{
+        height: 3em;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         display: flex;
         justify-content: space-around;
     }
